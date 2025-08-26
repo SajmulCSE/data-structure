@@ -2,7 +2,7 @@
 
 #define size 4
 
-int stack[4];
+int stack[size];
 int top = -1;
 
 void push() {
@@ -18,9 +18,21 @@ void push() {
     top++;
     stack[top] = value;
 }
-void pop(){}
+void pop(){
+  if(top < 0) {
+    printf("Stack underflow!!!\n");
+    return;
+  }
+
+  top--;
+}
 void show() {
-    for (int i = 0; i < size; i++)
+    if(top < 0) {
+        printf("Stack is empty!!!\n");
+        return;
+    }
+    
+    for (int i = top; i >= 0; i--)
     {
         printf("%d\n", stack[i]);
     }
@@ -31,7 +43,7 @@ int main() {
     while (1)
     {
         int choice;
-    printf("1. Push \n 2.Pop \n 3. Show \n 4. Exit \n Enter your choice \n");
+    printf("1. Push \n 2.Pop \n 3. Show \n 4. Exit \n Enter your choice: ");
     
     scanf("%d", &choice);
     
