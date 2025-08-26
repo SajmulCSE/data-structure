@@ -29,9 +29,9 @@ void enqueue() {
     
     rear++;
     top++;
-    if(front > rear) {
-        front = 0;
-    }
+    // if(front > rear) {
+    //     front = 0;
+    // }
     cout << "Enter a value:" << endl;
         cin >> value;
         queue[rear] = value;
@@ -47,7 +47,12 @@ void dequeue() {
 }
 void display() {
     int loopEnd = rear;
-    std::cout << "The queue is:" << std::endl;
+    std::cout << "The queue is:";
+    if(top < 0) {
+        std::cout << " EMPTY" << std::endl;
+    } else {
+        std::cout << std::endl;
+    }
     if(front > rear) {
         i = 0;
         loopEnd = size - 1;
@@ -62,7 +67,7 @@ int main()
     while (true)
     {
         cout << "\n1. Enqueue \n2. Dequeue\n3. Display\n 4.EXIT" << endl;
-        std::cout << "Top: " << top << " front: " << front << " rear: " << rear << std::endl;
+        // std::cout << "Top: " << top << " front: " << front << " rear: " << rear << std::endl;
         int choice;
         cout << "Enter your choice\n";
         cin >> choice;
